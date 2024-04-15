@@ -85,19 +85,25 @@ const Footer = () => {
               </h2>
               <ul className="list-unstyled text-light footer-link-list">
                 <li>
-                  <a className="text-decoration-none" href="#">
+                  <Link href={"/"} legacyBehavior>
+                  <a className="text-decoration-none" >
                     Home
                   </a>
+                  </Link>
                 </li>
                 <li>
-                  <a className="text-decoration-none" href="#">
+                  <Link href={"/about"} legacyBehavior>
+                  <a className="text-decoration-none">
                     About Us
                   </a>
+                  </Link>
                 </li>
                 <li>
+                  <Link href={"/contact"} legacyBehavior>
                   <a className="text-decoration-none" href="#">
                     Shop Locations
                   </a>
+                  </Link>
                 </li>
                 <li>
                   <a className="text-decoration-none" href="#">
@@ -105,9 +111,11 @@ const Footer = () => {
                   </a>
                 </li>
                 <li>
+                  <Link href={"contact"} legacyBehavior>
                   <a className="text-decoration-none" href="#">
                     Contact
                   </a>
+                  </Link>
                 </li>
               </ul>
             </div>

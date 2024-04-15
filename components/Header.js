@@ -30,24 +30,32 @@ const Header = () => {
             <div className="flex-fill">
               <ul className="nav navbar-nav d-flex justify-content-between mx-lg-auto">
                 <li className="nav-item">
-                  <a className="nav-link" href="index.html">
+                  <Link href={"/"} legacyBehavior>
+                  <a className="nav-link">
                     Home
                   </a>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="about.html">
+                  <Link href={"/about"} legacyBehavior>
+                  <a className="nav-link">
                     About
                   </a>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="shop.html">
+                  <Link href={"/shop"} legacyBehavior>
+                  <a className="nav-link">
                     Shop
                   </a>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="contact.html">
+                  <Link href={"/contact"} legacyBehavior>
+                  <a className="nav-link">
                     Contact
                   </a>
+                  </Link>
                 </li>
               </ul>
             </div>
