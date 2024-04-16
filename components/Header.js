@@ -37,7 +37,7 @@ const Header = () => {
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link href={"/about"} legacyBehavior>
+                  <Link href={"/About"} legacyBehavior>
                   <a className="nav-link">
                     About
                   </a>
