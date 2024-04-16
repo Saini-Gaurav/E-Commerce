@@ -92,14 +92,14 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link href={"/about"} legacyBehavior>
+                  <Link href={"/About"} legacyBehavior>
                   <a className="text-decoration-none">
                     About Us
                   </a>
                   </Link>
                 </li>
                 <li>
-                  <Link href={"/contact"} legacyBehavior>
+                  <Link href={"/Contact"} legacyBehavior>
                   <a className="text-decoration-none" href="#">
                     Shop Locations
                   </a>
@@ -111,7 +111,7 @@ const Footer = () => {
                   </a>
                 </li>
                 <li>
-                  <Link href={"contact"} legacyBehavior>
+                  <Link href={"Contact"} legacyBehavior>
                   <a className="text-decoration-none" href="#">
                     Contact
                   </a>

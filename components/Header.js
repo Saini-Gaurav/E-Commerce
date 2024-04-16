@@ -44,14 +44,14 @@ const Header = () => {
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link href={"/shop"} legacyBehavior>
+                  <Link href={"/Shop"} legacyBehavior>
                   <a className="nav-link">
                     Shop
                   </a>
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link href={"/contact"} legacyBehavior>
+                  <Link href={"/Contact"} legacyBehavior>
                   <a className="nav-link">
                     Contact
                   </a>
