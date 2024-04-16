@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -8,7 +9,7 @@ const Header = () => {
         <div className="container d-flex justify-content-between align-items-center">
           <Link href={"/"} legacyBehavior>
             <a className="navbar-brand text-success logo h1 align-self-center">
-              <img className="w-50" src="assests/img/logo.png" alt="logo" />
+              <Image width={130} height={50} src="/assests/img/logo.png" alt="logo" />
             </a>
           </Link>
           <button

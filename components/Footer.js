@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -10,7 +11,7 @@ const Footer = () => {
             <div className="col-md-4 pt-5">
               <h2 className="h2 text-success border-bottom pb-3 border-light logo">
                 <Link href={"/"} legacyBehaviour>
-                  <img className="w-50" src="assests/img/logo.png" alt="logo" />
+                <Image width={130} height={50} src="/assests/img/logo.png" alt="logo" />
                 </Link>
               </h2>
               <ul className="list-unstyled text-light footer-link-list">
