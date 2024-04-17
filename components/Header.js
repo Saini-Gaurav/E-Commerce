@@ -29,33 +29,33 @@ const Header = () => {
             id="templatemo_main_nav"
           >
             <div className="flex-fill">
-              <ul className="nav navbar-nav d-flex justify-content-between mx-lg-auto">
+              <ul className="nav navbar-nav d-flex justify-content-center mx-lg-auto">
                 <li className="nav-item">
                   <Link href={"/"} legacyBehavior>
-                  <a className="nav-link">
-                    Home
-                  </a>
+                    <a className="nav-link px-3"> {/* Adjusted padding on both sides */}
+                      Home
+                    </a>
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link href={"/About"} legacyBehavior>
-                  <a className="nav-link">
-                    About
-                  </a>
+                    <a className="nav-link px-3"> {/* Adjusted padding on both sides */}
+                      About
+                    </a>
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link href={"/Shop"} legacyBehavior>
-                  <a className="nav-link">
-                    Shop
-                  </a>
+                    <a className="nav-link px-3"> {/* Adjusted padding on both sides */}
+                      Shop
+                    </a>
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link href={"/Contact"} legacyBehavior>
-                  <a className="nav-link">
-                    Contact
-                  </a>
+                    <a className="nav-link px-3"> {/* Adjusted padding on both sides */}
+                      Contact
+                    </a>
                   </Link>
                 </li>
               </ul>

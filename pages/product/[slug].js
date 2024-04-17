@@ -3,6 +3,7 @@ import React from 'react'
 import Slider from "react-slick";
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import Image from 'next/image';
 
 const Product = () => {
     const router = useRouter();
@@ -14,7 +15,7 @@ const Product = () => {
             <div className="row">
                 <div className="col-lg-5 mt-5">
                     <div className="card mb-3">
-                        <img className="card-img img-fluid" src="assests/img/product_single_10.jpg" alt="Card image cap" id="product-detail" />
+                        <Image className="card-Image img-fluid" src="/assests/img/product_single_10.jpg" alt="Card image cap" id="product-detail" width={130} height={100} />
                     </div>
                     <div className="row">
                         {/* Start Controls */}
@@ -35,17 +36,17 @@ const Product = () => {
                                     <div className="row">
                                         <div className="col-4">
                                             <a href="#">
-                                                <img className="card-img img-fluid" src="assests/img/product_single_01.jpg" alt="Product Image 1" />
+                                                <Image className="card-Image img-fluid" src="/assests/img/product_single_01.jpg" alt="Product Image 1" width={130} height={50}/>
                                             </a>
                                         </div>
                                         <div className="col-4">
                                             <a href="#">
-                                                <img className="card-img img-fluid" src="assests/img/product_single_02.jpg" alt="Product Image 2" />
+                                                <Image className="card-Image img-fluid" src="/assests/img/product_single_02.jpg" alt="Product Image 2" width={130} height={50} />
                                             </a>
                                         </div>
                                         <div className="col-4">
                                             <a href="#">
-                                                <img className="card-img img-fluid" src="assests/img/product_single_03.jpg" alt="Product Image 3" />
+                                                <Image className="card-Image img-fluid" src="/assests/img/product_single_03.jpg" alt="Product Image 3" width={130} height={50}/>
                                             </a>
                                         </div>
                                     </div>
@@ -57,17 +58,17 @@ const Product = () => {
                                     <div className="row">
                                         <div className="col-4">
                                             <a href="#">
-                                                <img className="card-img img-fluid" src="assests/img/product_single_04.jpg" alt="Product Image 4" />
+                                                <Image className="card-Image img-fluid" src="/assests/img/product_single_04.jpg" alt="Product Image 4" width={130} height={50}/>
                                             </a>
                                         </div>
                                         <div className="col-4">
                                             <a href="#">
-                                                <img className="card-img img-fluid" src="assests/img/product_single_05.jpg" alt="Product Image 5" />
+                                                <Image className="card-Image img-fluid" src="/assests/img/product_single_05.jpg" alt="Product Image 5" width={130} height={50} />
                                             </a>
                                         </div>
                                         <div className="col-4">
                                             <a href="#">
-                                                <img className="card-img img-fluid" src="assests/img/product_single_06.jpg" alt="Product Image 6" />
+                                                <Image className="card-Image img-fluid" src="/assests/img/product_single_06.jpg" alt="Product Image 6" width={130} height={50}/>
                                             </a>
                                         </div>
                                     </div>
@@ -79,17 +80,17 @@ const Product = () => {
                                     <div className="row">
                                         <div className="col-4">
                                             <a href="#">
-                                                <img className="card-img img-fluid" src="assests/img/product_single_07.jpg" alt="Product Image 7" />
+                                                <Image className="card-Image img-fluid" src="/assests/img/product_single_07.jpg" alt="Product Image 7" width={130} height={50}/>
                                             </a>
                                         </div>
                                         <div className="col-4">
                                             <a href="#">
-                                                <img className="card-img img-fluid" src="assests/img/product_single_08.jpg" alt="Product Image 8" />
+                                                <Image className="card-Image img-fluid" src="/assests/img/product_single_08.jpg" alt="Product Image 8" width={130} height={50}/>
                                             </a>
                                         </div>
                                         <div className="col-4">
                                             <a href="#">
-                                                <img className="card-img img-fluid" src="assests/img/product_single_09.jpg" alt="Product Image 9" />
+                                                <Image className="card-Image img-fluid" src="/assests/img/product_single_09.jpg" alt="Product Image 9" width={130} height={50}/>
                                             </a>
                                         </div>
                                     </div>

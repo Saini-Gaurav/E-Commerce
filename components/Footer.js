@@ -196,7 +196,6 @@ const Footer = () => {
                     href="https://templatemo.com"
                     target="_blank"
                   >
-                    TemplateMo
                   </a>
                 </p>
               </div>
