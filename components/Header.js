@@ -32,28 +32,28 @@ const Header = () => {
               <ul className="nav navbar-nav d-flex justify-content-center mx-lg-auto">
                 <li className="nav-item">
                   <Link href={"/"} legacyBehavior>
-                    <a className="nav-link px-3"> {/* Adjusted padding on both sides */}
+                    <a className="nav-link px-3"> 
                       Home
                     </a>
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link href={"/About"} legacyBehavior>
-                    <a className="nav-link px-3"> {/* Adjusted padding on both sides */}
+                    <a className="nav-link px-3"> 
                       About
                     </a>
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link href={"/Shop"} legacyBehavior>
-                    <a className="nav-link px-3"> {/* Adjusted padding on both sides */}
+                    <a className="nav-link px-3"> 
                       Shop
                     </a>
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link href={"/Contact"} legacyBehavior>
-                    <a className="nav-link px-3"> {/* Adjusted padding on both sides */}
+                    <a className="nav-link px-3"> 
                       Contact
                     </a>
                   </Link>
