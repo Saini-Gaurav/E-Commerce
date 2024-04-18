@@ -32,30 +32,30 @@ const Header = () => {
               <ul className="nav navbar-nav d-flex justify-content-center mx-lg-auto">
                 <li className="nav-item">
                   <Link href={"/"} legacyBehavior>
-                    <a className="nav-link px-3"> 
-                      Home
-                    </a>
+                  <a className="nav-link px-3">
+                    Home
+                  </a>
                   </Link>
                 </li>
-                <li className="nav-item">
+                <li className="nav-item px-3">
                   <Link href={"/About"} legacyBehavior>
-                    <a className="nav-link px-3"> 
-                      About
-                    </a>
+                  <a className="nav-link">
+                    About
+                  </a>
                   </Link>
                 </li>
-                <li className="nav-item">
+                <li className="nav-item px-3">
                   <Link href={"/Shop"} legacyBehavior>
-                    <a className="nav-link px-3"> 
-                      Shop
-                    </a>
+                  <a className="nav-link">
+                    Shop
+                  </a>
                   </Link>
                 </li>
-                <li className="nav-item">
+                <li className="nav-item px-3">
                   <Link href={"/Contact"} legacyBehavior>
-                    <a className="nav-link px-3"> 
-                      Contact
-                    </a>
+                  <a className="nav-link">
+                    Contact
+                  </a>
                   </Link>
                 </li>
               </ul>

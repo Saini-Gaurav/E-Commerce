@@ -20,6 +20,8 @@ export default function App({ Component, pageProps }) {
     router.events.on("routeChangeComplete", () => {
       setProgress(100);
     });
+
+    import("bootstrap/dist/js/bootstrap");
   }, []);
 
   return (
