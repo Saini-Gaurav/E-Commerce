@@ -8,8 +8,7 @@ const MonthCategory = () => {
             <div className="col-lg-6 m-auto">
                 <h1 className="h1">Categories of The Month</h1>
                 <p>
-                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                    deserunt mollit anim id est laborum.
+                Explore our curated selection of trending categories for this month, featuring the latest in fashion, tech gadgets, home decor, and beyond. Discover top picks and must-haves to elevate your shopping experience.
                 </p>
             </div>
         </div>

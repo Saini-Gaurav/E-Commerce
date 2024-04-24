@@ -15,7 +15,7 @@ const Product = () => {
             <div className="row">
                 <div className="col-lg-5 mt-5">
                     <div className="card mb-3">
-                        <Image className="card-Image img-fluid" src="/assests/img/product_single_10.jpg" alt="Card image cap" id="product-detail" width={130} height={100} />
+                        <img className="card-Image img-fluid" src="/assests/img/product_single_10.jpg" alt="Card image cap" id="product-detail" />
                     </div>
                     <div className="row">
                         {/* Start Controls */}

@@ -9,8 +9,7 @@ const FeatureProduct = () => {
                 <div className="col-lg-6 m-auto">
                     <h1 className="h1">Featured Product</h1>
                     <p>
-                        Reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                        Excepteur sint occaecat cupidatat non proident.
+                    Discover our handpicked selection of standout products, showcasing the best of what our store has to offer. From premium quality to exceptional value, these featured items are sure to capture your interest and elevate your shopping experience.
                     </p>
                 </div>
             </div>
@@ -22,20 +21,12 @@ const FeatureProduct = () => {
                         </a>
                         <div className="card-body">
                             <ul className="list-unstyled d-flex justify-content-between">
-                                <li>
-                                    <i className="text-warning fa fa-star"></i>
-                                    <i className="text-warning fa fa-star"></i>
-                                    <i className="text-warning fa fa-star"></i>
-                                    <i className="text-muted fa fa-star"></i>
-                                    <i className="text-muted fa fa-star"></i>
-                                </li>
-                                <li className="text-muted text-right">$240.00</li>
+                                <li className="text-muted text-right">Price: $240.00</li>
                             </ul>
                             <a href="shop-single.html" className="h2 text-decoration-none text-dark">Gym Weight</a>
                             <p className="card-text">
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt in culpa qui officia deserunt.
                             </p>
-                            <p className="text-muted">Reviews (24)</p>
                         </div>
                     </div>
                 </div>
@@ -46,20 +37,12 @@ const FeatureProduct = () => {
                         </a>
                         <div className="card-body">
                             <ul className="list-unstyled d-flex justify-content-between">
-                                <li>
-                                    <i className="text-warning fa fa-star"></i>
-                                    <i className="text-warning fa fa-star"></i>
-                                    <i className="text-warning fa fa-star"></i>
-                                    <i className="text-muted fa fa-star"></i>
-                                    <i className="text-muted fa fa-star"></i>
-                                </li>
-                                <li className="text-muted text-right">$480.00</li>
+                                <li className="text-muted text-right">Price: $480.00</li>
                             </ul>
                             <a href="shop-single.html" className="h2 text-decoration-none text-dark">Cloud Nike Shoes</a>
                             <p className="card-text">
                                 Aenean gravida dignissim finibus. Nullam ipsum diam, posuere vitae pharetra sed, commodo ullamcorper.
                             </p>
-                            <p className="text-muted">Reviews (48)</p>
                         </div>
                     </div>
                 </div>
@@ -70,20 +53,12 @@ const FeatureProduct = () => {
                         </a>
                         <div className="card-body">
                             <ul className="list-unstyled d-flex justify-content-between">
-                                <li>
-                                    <i className="text-warning fa fa-star"></i>
-                                    <i className="text-warning fa fa-star"></i>
-                                    <i className="text-warning fa fa-star"></i>
-                                    <i className="text-warning fa fa-star"></i>
-                                    <i className="text-warning fa fa-star"></i>
-                                </li>
-                                <li className="text-muted text-right">$360.00</li>
+                                <li className="text-muted text-right">Price: $360.00</li>
                             </ul>
                             <a href="shop-single.html" className="h2 text-decoration-none text-dark">Summer Addides Shoes</a>
                             <p className="card-text">
                                 Curabitur ac mi sit amet diam luctus porta. Phasellus pulvinar sagittis diam, et scelerisque ipsum lobortis nec.
                             </p>
-                            <p className="text-muted">Reviews (74)</p>
                         </div>
                     </div>
                 </div>

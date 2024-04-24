@@ -1,6 +1,6 @@
 import React from 'react'
-import CardSection from './CardSection'
 import OurBrands from './OurBrands'
+import CardSection from './CardSection'
 
 const Shop = () => {
   return (
