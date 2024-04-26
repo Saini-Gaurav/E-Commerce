@@ -1,8 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useCart } from "react-use-cart";
 
 const Header = () => {
+  const {totalItems:cartTotalItems} = useCart();
+  const [totalItems, setTotalItems] = useState(0);
+  useEffect(() => {
+    setTotalItems(cartTotalItems);
+  }, [cartTotalItems]);
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-light shadow">
@@ -80,11 +86,11 @@ const Header = () => {
                 >
                   <i className="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
                   <span className="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">
-                    7
+                    {totalItems}
                   </span>
                 </a>
               </Link>
-              <a
+              {/* <a
                 className="nav-icon position-relative text-decoration-none"
                 href="#"
               >
@@ -92,7 +98,7 @@ const Header = () => {
                 <span className="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">
                   + 99
                 </span>
-              </a>
+              </a> */}
             </div>
           </div>
         </div>
@@ -142,3 +148,4 @@ const Header = () => {
 };
 
 export default Header;
+

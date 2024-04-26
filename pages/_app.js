@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import { useEffect, useState } from "react";
 import LoadingBar from "react-top-loading-bar";
 import { useRouter } from "next/router";
+import { CartProvider } from "react-use-cart";
 
 export default function App({ Component, pageProps }) {
   const [progress, setProgress] = useState(0);
@@ -32,9 +33,11 @@ export default function App({ Component, pageProps }) {
         waitingTime={400}
         onLoaderFinished={() => setProgress(0)}
       />
+      <CartProvider>
       <Header />
       <Component {...pageProps} />
       <Footer />
+      </CartProvider>
     </>
   );
 }

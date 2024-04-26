@@ -141,42 +141,41 @@ const CardSection = () => {
                     <div className="card rounded-0">
                       <img
                         className="card-img rounded-0 img-fluid"
-                        src={product?.thumb_image}
+                        src="assests/img/product_single_10.jpg"
                         style={{ height: "200px", objectFit: "cover" }}
                       />
                       <div className="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                         <ul className="list-unstyled">
                           <li>
-                            <a className="btn btn-success text-white" href="">
+                            <button className="btn btn-success text-white">
                               <i className="far fa-heart"></i>
-                            </a>
+                            </button>
                           </li>
                           <li>
-                            <a
+                            <button
                               className="btn btn-success text-white mt-2"
                               href=""
                             >
                               <i className="far fa-eye"></i>
-                            </a>
+                            </button>
                           </li>
                           <li>
-                            <a
+                            <button
                               className="btn btn-success text-white mt-2"
                               href=""
                             >
                               <i className="fas fa-cart-plus"></i>
-                            </a>
+                            </button>
                           </li>
                         </ul>
                       </div>
                     </div>
                     <div className="card-body" style={{ height: "300px" }}>
-                      <a
-                        href=""
+                      <p
                         className="h3 text-decoration-none"
                       >
-                        {product?.short_description}
-                      </a>
+                        Description: {product?.short_description}
+                      </p>
                       <ul className="w-100 list-unstyled d-flex justify-content-between mb-0">
                         <li>M/L/X/XL</li>
                         <li className="pt-2">
@@ -190,7 +189,7 @@ const CardSection = () => {
                       <p className="mb-0">Price: ${product?.start_price}</p>
                     </div>
                   </div>
-                </div>{" "}
+                </div>
               </Link>
             ))}
           </div>
