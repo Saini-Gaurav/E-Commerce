@@ -45,11 +45,19 @@ const Cart = () => {
                           className="bg-image hover-overlay hover-zoom ripple rounded"
                           data-mdb-ripple-color="light"
                         >
-                          <img
-                            src={item.thumb_image}
-                            className="w-100"
-                            alt={item.name}
-                          />
+                          {item.thumb_image ? (
+                            <img
+                              src={item.thumb_image}
+                              className="w-100"
+                              alt={item.name}
+                            />
+                          ) : (
+                            <img 
+                              src="/assests/img/product_single_10.jpg"
+                              className="w-100"
+                              alt={item.name}
+                            />
+                          )}
                           <a href="#!">
                             <div
                               className="mask"

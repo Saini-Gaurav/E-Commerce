@@ -36,11 +36,19 @@ const MonthCategory = () => {
             <div key={catProduct.id} className="col-12 col-md-4 p-5 mt-3">
               <Link href={`/product/${catProduct.slug}`} legacyBehavior>
                 <a>
-                  <img
-                    src="/assests/img/category_img_01.jpg"
-                    className="rounded-circle img-fluid border"
-                    alt={catProduct.name}
-                  />
+                  {catProduct.cat_image ? (
+                    <img
+                      src={catProduct.cat_image}
+                      className="rounded-circle img-fluid border"
+                      alt={catProduct.name}
+                    />
+                  ) : (
+                    <img
+                      src="/assests/img/category_img_01.jpg"
+                      className="rounded-circle img-fluid border"
+                      alt={catProduct.name}
+                    />
+                  )}
                 </a>
               </Link>
               <h5 className="text-center mt-3 mb-3">{catProduct.name}</h5>

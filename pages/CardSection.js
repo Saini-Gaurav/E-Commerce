@@ -119,15 +119,6 @@ const CardSection = () => {
                 </li>
               </ul>
             </div>
-            <div className="col-md-6 pb-4">
-              <div className="d-flex">
-                <select className="form-control">
-                  <option>Featured</option>
-                  <option>A to Z</option>
-                  <option>Item</option>
-                </select>
-              </div>
-            </div>
           </div>
           <div className="row">
             {products.map((product) => (
@@ -139,11 +130,15 @@ const CardSection = () => {
                 <div>
                   <div className="card mb-4 product-wap rounded-0 h-95">
                     <div className="card rounded-0">
-                      <img
+                      {product.thumb_image ? (<img
+                        className="card-img rounded-0 img-fluid"
+                        src={product.thumb_image}
+                        style={{ height: "200px", objectFit: "cover" }}
+                      />) : (<img
                         className="card-img rounded-0 img-fluid"
                         src="assests/img/product_single_10.jpg"
                         style={{ height: "200px", objectFit: "cover" }}
-                      />
+                      />)}
                       <div className="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                         <ul className="list-unstyled">
                           <li>
@@ -176,16 +171,16 @@ const CardSection = () => {
                       >
                         Description: {product?.short_description}
                       </p>
-                      <ul className="w-100 list-unstyled d-flex justify-content-between mb-0">
-                        <li>M/L/X/XL</li>
-                        <li className="pt-2">
-                          <span className="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
-                          <span className="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
-                          <span className="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
-                          <span className="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
-                          <span className="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
-                        </li>
-                      </ul>
+                        {/* <ul className="w-100 list-unstyled d-flex justify-content-between mb-0">
+                           <li>M/L/X/XL</li> 
+                          <li className="pt-2">
+                            <span className="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
+                            <span className="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
+                            <span className="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
+                            <span className="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
+                            <span className="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
+                          </li>
+                        </ul>*/}
                       <p className="mb-0">Price: ${product?.start_price}</p>
                     </div>
                   </div>
@@ -193,7 +188,7 @@ const CardSection = () => {
               </Link>
             ))}
           </div>
-          <div div="row">
+          {/* <div div="row">
             <ul className="pagination pagination-lg justify-content-end">
               <li className="page-item disabled">
                 <a
@@ -221,7 +216,7 @@ const CardSection = () => {
                 </a>
               </li>
             </ul>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

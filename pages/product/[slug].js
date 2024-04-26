@@ -38,13 +38,13 @@ const Product = () => {
   const handleAddToCart = () => {
     if (product) {
       const newItem = {
-        id: product.id, 
+        id: product.id,
         name: product.name,
-        price: product.start_price, 
+        price: product.start_price,
         image: product.thumb_image,
         description: product.short_description,
         sku: product.sku,
-        slug: product.slug
+        slug: product.slug,
       };
       addItem(newItem);
     }
@@ -57,12 +57,21 @@ const Product = () => {
             <div className="row">
               <div className="col-lg-5 mt-5">
                 <div className="card mb-3">
-                  <img
-                    className="card-Image img-fluid"
-                    src="/assests/img/product_single_10.jpg"
-                    alt="Card image cap"
-                    id="product-detail"
-                  />
+                  {product.thumb_image ? (
+                    <img
+                      className="card-Image img-fluid"
+                      src={product.thumb_image}
+                      alt="Card image cap"
+                      id="product-detail"
+                    />
+                  ) : (
+                    <img
+                      className="card-Image img-fluid"
+                      src="/assests/img/product_single_10.jpg"
+                      alt="Card image cap"
+                      id="product-detail"
+                    />
+                  )}
                 </div>
                 <div className="row">
                   {/* Start Controls */}
