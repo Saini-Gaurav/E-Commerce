@@ -6,6 +6,7 @@ import { useCart } from "react-use-cart";
 const Header = () => {
   const {totalItems:cartTotalItems} = useCart();
   const [totalItems, setTotalItems] = useState(0);
+  
   useEffect(() => {
     setTotalItems(cartTotalItems);
   }, [cartTotalItems]);

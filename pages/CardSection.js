@@ -1,20 +1,42 @@
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 
 const CardSection = () => {
   const [products, setProducts] = useState([]);
-  
+
+  const [inputValue, setInputValue] = useState("");
+
   useEffect(() => {
     getProduct();
   }, []);
 
   const getProduct = async () => {
-    const data = await fetch("https://loyalty.techamis.com/api/v2/get_products_list");
+    const data = await fetch(
+      "https://loyalty.techamis.com/api/v2/get_products_list"
+    );
     const json = await data.json();
     console.log(json);
     setProducts(json?.data || []);
   };
 
+  const [filteredList, setFilteredList] = useState(products.data);
+
+  const searchHandler = useCallback(() => {
+    const filteredData = products.filter((product) => {
+      return product.name.toLowerCase().includes(inputValue.toLowerCase());
+    });
+    setFilteredList(filteredData);
+  }, [inputValue, products]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      searchHandler();
+    }, 500);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  });
   return (
     <div className="container py-5">
       <div className="row">
@@ -26,10 +48,10 @@ const CardSection = () => {
                 className="collapsed d-flex justify-content-between h3 text-decoration-none"
                 href="#"
               >
-                Gender
+                Flora
                 <i className="fa fa-fw fa-chevron-circle-down mt-1"></i>
               </a>
-              <ul className="collapse show list-unstyled pl-3">
+              {/* <ul className="collapse show list-unstyled pl-3">
                 <li>
                   <a className="text-decoration-none" href="#">
                     Men
@@ -40,17 +62,17 @@ const CardSection = () => {
                     Women
                   </a>
                 </li>
-              </ul>
+              </ul> */}
             </li>
             <li className="pb-3">
               <a
                 className="collapsed d-flex justify-content-between h3 text-decoration-none"
                 href="#"
               >
-                Sale
+                Phenix
                 <i className="pull-right fa fa-fw fa-chevron-circle-down mt-1"></i>
               </a>
-              <ul id="collapseTwo" className="collapse list-unstyled pl-3">
+              {/* <ul id="collapseTwo" className="collapse list-unstyled pl-3">
                 <li>
                   <a className="text-decoration-none" href="#">
                     Sport
@@ -61,17 +83,17 @@ const CardSection = () => {
                     Luxury
                   </a>
                 </li>
-              </ul>
+              </ul> */}
             </li>
             <li className="pb-3">
               <a
                 className="collapsed d-flex justify-content-between h3 text-decoration-none"
                 href="#"
               >
-                Product
+                BigzT
                 <i className="pull-right fa fa-fw fa-chevron-circle-down mt-1"></i>
               </a>
-              <ul id="collapseThree" className="collapse list-unstyled pl-3">
+              {/* <ul id="collapseThree" className="collapse list-unstyled pl-3">
                 <li>
                   <a className="text-decoration-none" href="#">
                     Bag
@@ -87,7 +109,7 @@ const CardSection = () => {
                     Sunglass
                   </a>
                 </li>
-              </ul>
+              </ul> */}
             </li>
           </ul>
         </div>
@@ -119,59 +141,157 @@ const CardSection = () => {
                 </li>
               </ul>
             </div>
+            <div class="col-md-6 pb-4">
+              <div class="d-flex">
+                <form
+                  action=""
+                  method="get"
+                  className="modal-content modal-body border-0 p-0"
+                  onSubmit={(e) => e.preventDefault()}
+                >
+                  <div className="input-group mb-2">
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="inputModalSearch"
+                      name="q"
+                      placeholder="Search ..."
+                      value={inputValue}
+                      onChange={(e) => setInputValue(e.target.value)}
+                    />
+                    <button
+                      type="submit"
+                      className="input-group-text bg-success text-light"
+                    >
+                      <i className="fa fa-fw fa-search text-white"></i>
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
           </div>
           <div className="row">
-            {products.map((product) => (
-              <Link
-                key={product.id}
-                href={`/product/${product.slug}`}
-                className="col-md-4"
-              >
-                <div>
-                  <div className="card mb-4 product-wap rounded-0 h-95">
-                    <div className="card rounded-0">
-                      {product.thumb_image ? (<img
-                        className="card-img rounded-0 img-fluid"
-                        src={product.thumb_image}
-                        style={{ height: "200px", objectFit: "cover" }}
-                      />) : (<img
-                        className="card-img rounded-0 img-fluid"
-                        src="assests/img/product_single_10.jpg"
-                        style={{ height: "200px", objectFit: "cover" }}
-                      />)}
-                      <div className="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
-                        <ul className="list-unstyled">
-                          <li>
-                            <button className="btn btn-success text-white">
-                              <i className="far fa-heart"></i>
-                            </button>
-                          </li>
-                          <li>
-                            <button
-                              className="btn btn-success text-white mt-2"
-                              href=""
-                            >
-                              <i className="far fa-eye"></i>
-                            </button>
-                          </li>
-                          <li>
-                            <button
-                              className="btn btn-success text-white mt-2"
-                              href=""
-                            >
-                              <i className="fas fa-cart-plus"></i>
-                            </button>
-                          </li>
-                        </ul>
+            {inputValue.length > 0
+              ? filteredList.map((product) => (
+                <Link
+                  key={product.id}
+                  href={`/product/${product.slug}`}
+                  className="col-md-4"
+                >
+                  <div>
+                    <div className="card mb-4 product-wap rounded-0 h-95">
+                      <div className="card rounded-0">
+                        {product.thumb_image ? (
+                          <img
+                            className="card-img rounded-0 img-fluid"
+                            src={product.thumb_image}
+                            style={{ height: "200px", objectFit: "cover" }}
+                          />
+                        ) : (
+                          <img
+                            className="card-img rounded-0 img-fluid"
+                            src="assests/img/product_single_10.jpg"
+                            style={{ height: "200px", objectFit: "cover" }}
+                          />
+                        )}
+                        <div className="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                          <ul className="list-unstyled">
+                            <li>
+                              <button className="btn btn-success text-white">
+                                <i className="far fa-heart"></i>
+                              </button>
+                            </li>
+                            <li>
+                              <button
+                                className="btn btn-success text-white mt-2"
+                                href=""
+                              >
+                                <i className="far fa-eye"></i>
+                              </button>
+                            </li>
+                            <li>
+                              <button
+                                className="btn btn-success text-white mt-2"
+                                href=""
+                              >
+                                <i className="fas fa-cart-plus"></i>
+                              </button>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div className="card-body" style={{ height: "300px" }}>
+                        <p className="h3 text-decoration-none">
+                          Description: {product?.short_description}
+                        </p>
+                        {/* <ul className="w-100 list-unstyled d-flex justify-content-between mb-0">
+                         <li>M/L/X/XL</li> 
+                        <li className="pt-2">
+                          <span className="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
+                          <span className="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
+                          <span className="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
+                          <span className="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
+                          <span className="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
+                        </li>
+                      </ul>*/}
+                        <p className="mb-0">Price: ${product?.start_price}</p>
+                        <p className="mb-0">Name: {product?.name}</p>
                       </div>
                     </div>
-                    <div className="card-body" style={{ height: "300px" }}>
-                      <p
-                        className="h3 text-decoration-none"
-                      >
-                        Description: {product?.short_description}
-                      </p>
-                        {/* <ul className="w-100 list-unstyled d-flex justify-content-between mb-0">
+                  </div>
+                </Link>
+              ))
+              : products.map((product) => (
+                  <Link
+                    key={product.id}
+                    href={`/product/${product.slug}`}
+                    className="col-md-4"
+                  >
+                    <div>
+                      <div className="card mb-4 product-wap rounded-0 h-95">
+                        <div className="card rounded-0">
+                          {product.thumb_image ? (
+                            <img
+                              className="card-img rounded-0 img-fluid"
+                              src={product.thumb_image}
+                              style={{ height: "200px", objectFit: "cover" }}
+                            />
+                          ) : (
+                            <img
+                              className="card-img rounded-0 img-fluid"
+                              src="assests/img/product_single_10.jpg"
+                              style={{ height: "200px", objectFit: "cover" }}
+                            />
+                          )}
+                          <div className="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                            <ul className="list-unstyled">
+                              <li>
+                                <button className="btn btn-success text-white">
+                                  <i className="far fa-heart"></i>
+                                </button>
+                              </li>
+                              <li>
+                                <button
+                                  className="btn btn-success text-white mt-2"
+                                >
+                                  <i className="far fa-eye"></i>
+                                </button>
+                              </li>
+                              <li>
+                                <button
+                                  className="btn btn-success text-white mt-2"
+                                >
+                                  <i className="fas fa-cart-plus"></i>
+                                </button>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                        <div className="card-body" style={{ height: "300px" }}>
+                          <p className="h3 text-decoration-none">
+                            Description: {product?.short_description}
+                          </p>
+                          {/* <ul className="w-100 list-unstyled d-flex justify-content-between mb-0">
                            <li>M/L/X/XL</li> 
                           <li className="pt-2">
                             <span className="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
@@ -181,12 +301,13 @@ const CardSection = () => {
                             <span className="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
                           </li>
                         </ul>*/}
-                      <p className="mb-0">Price: ${product?.start_price}</p>
+                          <p className="mb-0 text-decoration-none">Price: ${product?.start_price}</p>
+                          <p className="mb-0 text-decoration-none">Name: {product?.name}</p>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
-              </Link>
-            ))}
+                  </Link>
+                ))}
           </div>
           {/* <div div="row">
             <ul className="pagination pagination-lg justify-content-end">

@@ -2,7 +2,7 @@ import React from 'react'
 import OurBrands from './OurBrands'
 import CardSection from './CardSection'
 
-const Shop = () => {
+const Shop = ({products}) => {
   return (
     <div>
       <CardSection />
