@@ -24,6 +24,8 @@ const Cart = () => {
     setCartLoaded(true);
   }, []);
 
+  console.log(items);
+
   if (!cartLoaded) return null;
 
   if (isEmpty) return <h1 className="text-center">Your cart is empty</h1>;

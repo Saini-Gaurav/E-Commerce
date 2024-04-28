@@ -9,8 +9,7 @@ const OurBrands = () => {
                 <div className="col-lg-6 m-auto">
                     <h1 className="h1">Our Brands</h1>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        Lorem ipsum dolor sit amet.
+                    Our Brands presents a curated selection of trusted names and beloved labels, offering quality and reliability across a diverse range of products. Explore our handpicked assortment, tailored to meet your preferences and elevate your shopping experience.
                     </p>
                 </div>
                 <div className="col-lg-9 m-auto tempaltemo-carousel">
