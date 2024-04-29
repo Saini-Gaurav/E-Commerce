@@ -1,7 +1,7 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp, getApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-import { getAuth } from "firebase/auth";
+import { useEffect, useState } from 'react';
+import { initializeApp } from 'firebase/app';
+import { getAnalytics } from 'firebase/analytics';
+import { getAuth } from 'firebase/auth';
 
 const firebaseConfig = {
   apiKey: "AIzaSyC0jRaEosVqCYEo7TVT1CukL7InDKKjm5I",
@@ -13,8 +13,21 @@ const firebaseConfig = {
   measurementId: "G-80FHXZDB2Y"
 };
 
-// Initialize Firebase
-const app = !getApps().length ? initializeApp(firebaseConfig) : getApp()
-const analytics = getAnalytics(app);
+let app;
+let analytics;
+let auth;
 
-export const auth = getAuth();
+export const useFirebase = () => {
+  const [firebaseInitialized, setFirebaseInitialized] = useState(false);
+
+  useEffect(() => {
+    if (!firebaseInitialized && typeof window !== 'undefined') {
+      app = initializeApp(firebaseConfig);
+      analytics = getAnalytics(app);
+      auth = getAuth(app);
+      setFirebaseInitialized(true);
+    }
+  }, [firebaseInitialized]);
+
+  return { app, analytics, auth };
+};

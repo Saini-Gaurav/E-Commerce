@@ -2,14 +2,60 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { useCart } from "react-use-cart";
+import { useFirebase } from "@/utils/firebase";
+import { onAuthStateChanged, signOut } from "firebase/auth";
+import { useDispatch } from "react-redux";
+import { addUser, removeUser } from "@/utils/userSlice";
+import { useRouter } from "next/router";
 
 const Header = () => {
+  const dispatch = useDispatch();
+  const router = useRouter();
+
   const { totalItems: cartTotalItems } = useCart();
   const [totalItems, setTotalItems] = useState(0);
+  const [isHovering, setIsHovering] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const { auth } = useFirebase();
+
+  const handleSignOut = () => {
+    signOut(auth)
+      .then(() => {
+        // setIsLoggedIn(false); // Update isLoggedIn state to false when user signs out
+        // router.push("/Login");
+      })
+      .catch((error) => {
+        router.push("/error");
+      });
+  };
 
   useEffect(() => {
     setTotalItems(cartTotalItems);
   }, [cartTotalItems]);
+
+  useEffect(() => {
+    if (auth) {
+      const unsubscribe = onAuthStateChanged(auth, (user) => {
+        if (user) {
+          const { uid, email, displayName } = user;
+          dispatch(addUser({ uid: uid, email: email, displayName: displayName }));
+          setIsLoggedIn(true);
+          router.push("/");
+        } else {
+          dispatch(removeUser());
+          setIsLoggedIn(false);
+          router.push("/Login");
+        }
+      });
+
+      return () => {
+        // Clean up the subscription when component unmounts
+        unsubscribe();
+      };
+    }
+  }, [auth]);
+
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-light shadow">
@@ -90,9 +136,21 @@ const Header = () => {
                 </a>
               </Link>
               <Link href={"/Login"} legacyBehavior>
-                <a className="nav-icon position-relative text-decoration-none">
+                <a
+                  className="nav-icon position-relative text-decoration-none"
+                  onMouseEnter={() => isLoggedIn && setIsHovering(true)}
+                  onMouseLeave={() => isLoggedIn && setIsHovering(false)}
+                >
                   <i className="fa fa-fw fa-user text-dark mr-3"></i>
-                  <span className="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"></span>
+                  {isLoggedIn && isHovering && (
+                    <span
+                      className="position-absolute top-100 start-50 translate-middle badge rounded-pill bg-light text-dark mt-2"
+                      style={{ zIndex: "1" }}
+                      onClick={handleSignOut}
+                    >
+                      Sign Out
+                    </span>
+                  )}
                 </a>
               </Link>
             </div>

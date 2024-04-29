@@ -9,6 +9,8 @@ import { useEffect, useState } from "react";
 import LoadingBar from "react-top-loading-bar";
 import { useRouter } from "next/router";
 import { CartProvider } from "react-use-cart";
+import { Provider } from "react-redux";
+import appStore from "@/utils/appStore";
 
 export default function App({ Component, pageProps }) {
   const [progress, setProgress] = useState(0);
@@ -27,6 +29,7 @@ export default function App({ Component, pageProps }) {
 
   return (
     <>
+    <Provider store={appStore}>
       <LoadingBar
         color="#2eca6a"
         progress={progress}
@@ -38,6 +41,7 @@ export default function App({ Component, pageProps }) {
       <Component {...pageProps} />
       <Footer />
       </CartProvider>
+      </Provider>
     </>
   );
 }
