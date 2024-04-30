@@ -5,10 +5,10 @@ const MonthCategory = () => {
   const [categoryProducts, setCategoryProducts] = useState([]);
 
   useEffect(() => {
-    getProduct();
+    getCategory();
   }, []);
 
-  const getProduct = async () => {
+  const getCategory = async () => {
     const data = await fetch(
       "https://loyalty.techamis.com/api/v2/get_categories_data"
     );
@@ -34,7 +34,7 @@ const MonthCategory = () => {
         <div className="row">
           {categoryProducts.map((catProduct) => (
             <div key={catProduct.id} className="col-12 col-md-4 p-5 mt-3">
-              <Link href={`/product/${catProduct.slug}`} legacyBehavior>
+              <Link href={"/CardSection"} legacyBehavior>
                 <a>
                   {catProduct.cat_image ? (
                     <img

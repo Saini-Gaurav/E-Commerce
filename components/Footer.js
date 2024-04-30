@@ -9,11 +9,16 @@ const Footer = () => {
         <div className="container">
           <div className="row">
             <div className="col-md-4 pt-5">
-              <h2 className="h2 text-success border-bottom pb-3 border-light logo">
+              <h3 className="h2 text-success pb-3 border-light logo">
                 <Link href={"/"} legacyBehaviour>
-                <Image width={130} height={50} src="/assests/img/logo.png" alt="logo" />
+                  <Image
+                    width={130}
+                    height={50}
+                    src="/assests/img/logo.png"
+                    alt="logo"
+                  />
                 </Link>
-              </h2>
+              </h3>
               <ul className="list-unstyled text-light footer-link-list">
                 <li>
                   <i className="fas fa-map-marker-alt fa-fw"></i>
@@ -39,43 +44,23 @@ const Footer = () => {
 
             <div className="col-md-4 pt-5">
               <h2 className="h2 text-light border-bottom pb-3 border-light">
-                Products
+                Category
               </h2>
               <ul className="list-unstyled text-light footer-link-list">
                 <li>
-                  <a className="text-decoration-none" href="#">
-                    Luxury
-                  </a>
+                  <Link href={"/CardSection"} legacyBehavior>
+                    <a className="text-decoration-none">Flora</a>
+                  </Link>
                 </li>
                 <li>
-                  <a className="text-decoration-none" href="#">
-                    Sport Wear
-                  </a>
+                  <Link href={"/CardSection"} legacyBehavior>
+                    <a className="text-decoration-none">Phenix</a>
+                  </Link>
                 </li>
                 <li>
-                  <a className="text-decoration-none" href="#">
-                    Men's Shoes
-                  </a>
-                </li>
-                <li>
-                  <a className="text-decoration-none" href="#">
-                    Women's Shoes
-                  </a>
-                </li>
-                <li>
-                  <a className="text-decoration-none" href="#">
-                    Popular Dress
-                  </a>
-                </li>
-                <li>
-                  <a className="text-decoration-none" href="#">
-                    Gym Accessories
-                  </a>
-                </li>
-                <li>
-                  <a className="text-decoration-none" href="#">
-                    Sport Shoes
-                  </a>
+                  <Link href={"/CardSection"} legacyBehavior>
+                    <a className="text-decoration-none">BigzT</a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -87,35 +72,26 @@ const Footer = () => {
               <ul className="list-unstyled text-light footer-link-list">
                 <li>
                   <Link href={"/"} legacyBehavior>
-                  <a className="text-decoration-none" >
-                    Home
-                  </a>
+                    <a className="text-decoration-none">Home</a>
                   </Link>
                 </li>
                 <li>
                   <Link href={"/About"} legacyBehavior>
-                  <a className="text-decoration-none">
-                    About Us
-                  </a>
+                    <a className="text-decoration-none">About Us</a>
                   </Link>
                 </li>
                 <li>
                   <Link href={"/Contact"} legacyBehavior>
-                  <a className="text-decoration-none" href="#">
-                    Shop Locations
-                  </a>
+                    <a className="text-decoration-none" href="#">
+                      Shop Locations
+                    </a>
                   </Link>
                 </li>
                 <li>
-                  <a className="text-decoration-none" href="#">
-                    FAQs
-                  </a>
-                </li>
-                <li>
                   <Link href={"Contact"} legacyBehavior>
-                  <a className="text-decoration-none" href="#">
-                    Contact
-                  </a>
+                    <a className="text-decoration-none" href="#">
+                      Contact
+                    </a>
                   </Link>
                 </li>
               </ul>
@@ -195,8 +171,7 @@ const Footer = () => {
                     rel="sponsored"
                     href="https://templatemo.com"
                     target="_blank"
-                  >
-                  </a>
+                  ></a>
                 </p>
               </div>
             </div>

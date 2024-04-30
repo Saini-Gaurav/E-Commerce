@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { useCart } from "react-use-cart";
 
@@ -28,7 +29,7 @@ const Cart = () => {
 
   if (!cartLoaded) return null;
 
-  if (isEmpty) return <h1 className="text-center">Your cart is empty</h1>;
+  if (isEmpty) return <h1 className="text-center pt-8 pb-8">Your cart is empty</h1>;
   return (
     <div>
       <section className="h-100 gradient-custom">
@@ -54,7 +55,7 @@ const Cart = () => {
                               alt={item.name}
                             />
                           ) : (
-                            <img 
+                            <img
                               src="/assests/img/product_single_10.jpg"
                               className="w-100"
                               alt={item.name}
@@ -73,7 +74,7 @@ const Cart = () => {
 
                       <div className="col-lg-5 col-md-6 mb-4 mb-lg-0">
                         <p>
-                          <strong>{item.title}</strong>
+                          <strong>{item.name}</strong>
                         </p>
                         <button
                           type="button"
@@ -163,15 +164,16 @@ const Cart = () => {
                       </span>
                     </li>
                   </ul>
-
-                  <button
-                    type="button"
-                    data-mdb-button-init
-                    data-mdb-ripple-init
-                    className="btn btn-primary btn-lg btn-block"
-                  >
-                    Go to checkout
-                  </button>
+                  <Link href={"/Checkout"}>
+                    <button
+                      type="button"
+                      data-mdb-button-init
+                      data-mdb-ripple-init
+                      className="btn btn-primary btn-lg btn-block"
+                    >
+                      Go to checkout
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>

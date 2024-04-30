@@ -19,6 +19,38 @@ const CardSection = () => {
     setProducts(json?.data || []);
   };
 
+
+  useEffect(() => {
+    fetchProducts();
+  }, []);
+  
+  const fetchProducts = async (category_Id) => {
+    try {
+      // Ensure category_Id is provided before making the API call
+      if (category_Id === undefined) {
+        return;
+      }
+      
+      const response = await fetch(
+        `https://loyalty.techamis.com/api/v2/get_products_list?category_id=${category_Id}`
+      );
+      const json = await response.json();
+      console.log(json);
+      setProducts(json?.data || []);
+      setFilteredList(json?.data || []);
+    } catch (error) {
+      console.error("Error fetching products:", error);
+      // Handle error
+    }
+  };
+  
+  const handleCategoryClick = (category_Id) => {
+    // Check if category_Id is defined before calling fetchProducts
+    if (category_Id !== undefined) {
+      fetchProducts(category_Id);
+    }
+  };
+  
   const [filteredList, setFilteredList] = useState(products.data);
 
   const searchHandler = useCallback(() => {
@@ -44,72 +76,37 @@ const CardSection = () => {
           <h1 className="h2 pb-4">Categories</h1>
           <ul className="list-unstyled templatemo-accordion">
             <li className="pb-3">
+              <Link href={""} legacyBehavior>
               <a
                 className="collapsed d-flex justify-content-between h3 text-decoration-none"
-                href="#"
+                onClick={() => handleCategoryClick(1)}
               >
                 Flora
                 <i className="fa fa-fw fa-chevron-circle-down mt-1"></i>
               </a>
-              {/* <ul className="collapse show list-unstyled pl-3">
-                <li>
-                  <a className="text-decoration-none" href="#">
-                    Men
-                  </a>
-                </li>
-                <li>
-                  <a className="text-decoration-none" href="#">
-                    Women
-                  </a>
-                </li>
-              </ul> */}
+              </Link>
             </li>
-            <li className="pb-3">
+            <li className="pb-3 cursor-pointer">
+            <Link href={""} legacyBehavior>
               <a
                 className="collapsed d-flex justify-content-between h3 text-decoration-none"
-                href="#"
+                onClick={() => handleCategoryClick(2)}
               >
                 Phenix
                 <i className="pull-right fa fa-fw fa-chevron-circle-down mt-1"></i>
               </a>
-              {/* <ul id="collapseTwo" className="collapse list-unstyled pl-3">
-                <li>
-                  <a className="text-decoration-none" href="#">
-                    Sport
-                  </a>
-                </li>
-                <li>
-                  <a className="text-decoration-none" href="#">
-                    Luxury
-                  </a>
-                </li>
-              </ul> */}
+              </Link>
             </li>
             <li className="pb-3">
+            <Link href={""} legacyBehavior>
               <a
                 className="collapsed d-flex justify-content-between h3 text-decoration-none"
-                href="#"
+                onClick={() => handleCategoryClick(3)}
               >
                 BigzT
                 <i className="pull-right fa fa-fw fa-chevron-circle-down mt-1"></i>
               </a>
-              {/* <ul id="collapseThree" className="collapse list-unstyled pl-3">
-                <li>
-                  <a className="text-decoration-none" href="#">
-                    Bag
-                  </a>
-                </li>
-                <li>
-                  <a className="text-decoration-none" href="#">
-                    Sweather
-                  </a>
-                </li>
-                <li>
-                  <a className="text-decoration-none" href="#">
-                    Sunglass
-                  </a>
-                </li>
-              </ul> */}
+              </Link>
             </li>
           </ul>
         </div>
@@ -131,12 +128,7 @@ const CardSection = () => {
                     className="h3 text-dark text-decoration-none mr-3"
                     href="#"
                   >
-                    Men's
-                  </a>
-                </li>
-                <li className="list-inline-item">
-                  <a className="h3 text-dark text-decoration-none" href="#">
-                    Women's
+                    Products
                   </a>
                 </li>
               </ul>
@@ -202,9 +194,7 @@ const CardSection = () => {
                                 </button>
                               </li>
                               <li>
-                                <button
-                                  className="btn btn-success text-white mt-2"
-                                >
+                                <button className="btn btn-success text-white mt-2">
                                   <i className="far fa-eye"></i>
                                 </button>
                               </li>
@@ -222,16 +212,6 @@ const CardSection = () => {
                           <p className="h3">
                             Description: {product?.short_description}
                           </p>
-                          {/* <ul className="w-100 list-unstyled d-flex justify-content-between mb-0">
-                         <li>M/L/X/XL</li> 
-                        <li className="pt-2">
-                          <span className="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
-                          <span className="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
-                          <span className="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
-                          <span className="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
-                          <span className="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
-                        </li>
-                      </ul>*/}
                           <p className="mb-0">Price: ${product?.start_price}</p>
                           <p className="mb-0">Name: {product?.name}</p>
                         </div>
@@ -287,57 +267,14 @@ const CardSection = () => {
                           <p className="h3">
                             Description: {product?.short_description}
                           </p>
-                          {/* <ul className="w-100 list-unstyled d-flex justify-content-between mb-0">
-                           <li>M/L/X/XL</li> 
-                          <li className="pt-2">
-                            <span className="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
-                            <span className="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
-                            <span className="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
-                            <span className="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
-                            <span className="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
-                          </li>
-                        </ul>*/}
-                          <p className="mb-0">
-                            Price: ${product?.start_price}
-                          </p>
-                          <p className="mb-0">
-                            Name: {product?.name}
-                          </p>
+                          <p className="mb-0">Price: ${product?.start_price}</p>
+                          <p className="mb-0">Name: {product?.name}</p>
                         </div>
                       </div>
                     </div>
                   </Link>
                 ))}
           </div>
-          {/* <div div="row">
-            <ul className="pagination pagination-lg justify-content-end">
-              <li className="page-item disabled">
-                <a
-                  className="page-link active rounded-0 mr-3 shadow-sm border-top-0 border-left-0"
-                  href="#"
-                  tabIndex="-1"
-                >
-                  1
-                </a>
-              </li>
-              <li className="page-item">
-                <a
-                  className="page-link rounded-0 mr-3 shadow-sm border-top-0 border-left-0 text-dark"
-                  href="#"
-                >
-                  2
-                </a>
-              </li>
-              <li className="page-item">
-                <a
-                  className="page-link rounded-0 shadow-sm border-top-0 border-left-0 text-dark"
-                  href="#"
-                >
-                  3
-                </a>
-              </li>
-            </ul>
-          </div> */}
         </div>
       </div>
     </div>

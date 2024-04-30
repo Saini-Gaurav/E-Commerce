@@ -8,6 +8,7 @@ import {
 import { useFirebase } from "@/utils/firebase";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser } from "@/utils/userSlice";
+import Link from "next/link";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
@@ -131,6 +132,7 @@ const Login = () => {
             >
               {isSignInForm ? "Sign In" : "Sign Up"}
             </button>
+            <Link href={""} className="text-decoration-none">
             <p
               className="py-2 cursor-pointer text-white"
               onClick={toggleSignInForm}
@@ -139,6 +141,7 @@ const Login = () => {
                 ? "New to Shop? Sign Up Now"
                 : "Already Registered? Sign In Now"}
             </p>
+            </Link>
           </form>
         </div>
       </div>

@@ -1,0 +1,16 @@
+@media (max-width: 991.98px) {
+    .nav-icon {
+      margin-right: 5px; /*Increase the margin between icons*/
+    }
+  
+    .nav-icon i {
+      font-size: 20px; /* Decrease the font size of the icons */
+    }
+  
+    .badge {
+      /* top: -5px; Adjust the top position of the badge */
+      /* right: -10px; Adjust the right position of the badge */
+      /* font-size: 12px; Decrease the font size of the badge */
+      /* padding: 5px 8px; Adjust padding for better appearance */
+    }
+  }
