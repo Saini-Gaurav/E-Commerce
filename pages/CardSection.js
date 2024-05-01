@@ -1,7 +1,10 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React, { useCallback, useEffect, useState } from "react";
 
 const CardSection = () => {
+  const router = useRouter();
+  const { query, replace } = router;
   const [products, setProducts] = useState([]);
 
   const [inputValue, setInputValue] = useState("");
@@ -19,18 +22,19 @@ const CardSection = () => {
     setProducts(json?.data || []);
   };
 
-
   useEffect(() => {
-    fetchProducts();
-  }, []);
-  
+    if (query.category_id) {
+      fetchProducts(query.category_id);
+    }
+  }, [query.category_id]);
+
   const fetchProducts = async (category_Id) => {
     try {
       // Ensure category_Id is provided before making the API call
       if (category_Id === undefined) {
         return;
       }
-      
+
       const response = await fetch(
         `https://loyalty.techamis.com/api/v2/get_products_list?category_id=${category_Id}`
       );
@@ -43,14 +47,18 @@ const CardSection = () => {
       // Handle error
     }
   };
-  
+
   const handleCategoryClick = (category_Id) => {
+    replace({
+      pathname: router.pathname,
+      query: { ...query, category_id: category_Id }, // Merge with existing query parameters
+    });
     // Check if category_Id is defined before calling fetchProducts
     if (category_Id !== undefined) {
       fetchProducts(category_Id);
     }
   };
-  
+
   const [filteredList, setFilteredList] = useState(products.data);
 
   const searchHandler = useCallback(() => {
@@ -77,35 +85,35 @@ const CardSection = () => {
           <ul className="list-unstyled templatemo-accordion">
             <li className="pb-3">
               <Link href={""} legacyBehavior>
-              <a
-                className="collapsed d-flex justify-content-between h3 text-decoration-none"
-                onClick={() => handleCategoryClick(1)}
-              >
-                Flora
-                <i className="fa fa-fw fa-chevron-circle-down mt-1"></i>
-              </a>
+                <a
+                  className="collapsed d-flex justify-content-between h3 text-decoration-none"
+                  onClick={() => handleCategoryClick(1)}
+                >
+                  Flora
+                  <i className="fa fa-fw fa-chevron-circle-down mt-1"></i>
+                </a>
               </Link>
             </li>
             <li className="pb-3 cursor-pointer">
-            <Link href={""} legacyBehavior>
-              <a
-                className="collapsed d-flex justify-content-between h3 text-decoration-none"
-                onClick={() => handleCategoryClick(2)}
-              >
-                Phenix
-                <i className="pull-right fa fa-fw fa-chevron-circle-down mt-1"></i>
-              </a>
+              <Link href={""} legacyBehavior>
+                <a
+                  className="collapsed d-flex justify-content-between h3 text-decoration-none"
+                  onClick={() => handleCategoryClick(2)}
+                >
+                  Phenix
+                  <i className="pull-right fa fa-fw fa-chevron-circle-down mt-1"></i>
+                </a>
               </Link>
             </li>
             <li className="pb-3">
-            <Link href={""} legacyBehavior>
-              <a
-                className="collapsed d-flex justify-content-between h3 text-decoration-none"
-                onClick={() => handleCategoryClick(3)}
-              >
-                BigzT
-                <i className="pull-right fa fa-fw fa-chevron-circle-down mt-1"></i>
-              </a>
+              <Link href={""} legacyBehavior>
+                <a
+                  className="collapsed d-flex justify-content-between h3 text-decoration-none"
+                  onClick={() => handleCategoryClick(3)}
+                >
+                  BigzT
+                  <i className="pull-right fa fa-fw fa-chevron-circle-down mt-1"></i>
+                </a>
               </Link>
             </li>
           </ul>
@@ -208,7 +216,7 @@ const CardSection = () => {
                             </ul>
                           </div>
                         </div>
-                        <div className="card-body" style={{ height: "300px" }}>
+                        <div className="card-body" style={{ height: "200px" }}>
                           <p className="h3">
                             Description: {product?.short_description}
                           </p>
@@ -253,17 +261,17 @@ const CardSection = () => {
                                   <i className="far fa-eye"></i>
                                 </button>
                               </li>
-                              <li>
+                              {/* <li>
                                 <Link href={"/Cart"}>
                                   <button className="btn btn-success text-white mt-2">
                                     <i className="fas fa-cart-plus"></i>
                                   </button>
                                 </Link>
-                              </li>
+                              </li> */}
                             </ul>
                           </div>
                         </div>
-                        <div className="card-body" style={{ height: "300px" }}>
+                        <div className="card-body" style={{ height: "200px" }}>
                           <p className="h3">
                             Description: {product?.short_description}
                           </p>

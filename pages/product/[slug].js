@@ -49,6 +49,7 @@ const Product = () => {
       addItem(newItem);
     }
   };
+
   return (
     <div>
       {product ? (
@@ -273,46 +274,22 @@ const Product = () => {
                       <li>Excepteur sint</li>
                     </ul>
 
-                    <form action="" method="GET">
+                    <form onSubmit={(e)=>{ e.preventDefault()}}>
                       <input
                         type="hidden"
                         name="product-title"
                         value="Activewear"
                       />
-                      {/* <div className="row">
-                                    <div className="col-auto">
-                                        <ul className="list-inline pb-3">
-                                            <li className="list-inline-item">Size :
-                                                <input type="hidden" name="product-size" id="product-size" value="S" />
-                                            </li>
-                                            <li className="list-inline-item"><span className="btn btn-success btn-size">S</span></li>
-                                            <li className="list-inline-item"><span className="btn btn-success btn-size">M</span></li>
-                                            <li className="list-inline-item"><span className="btn btn-success btn-size">L</span></li>
-                                            <li className="list-inline-item"><span className="btn btn-success btn-size">XL</span></li>
-                                        </ul>
-                                    </div>
-                                    <div className="col-auto">
-                                        <ul className="list-inline pb-3">
-                                            <li className="list-inline-item text-right">
-                                                Quantity
-                                                <input type="hidden" name="product-quanity" id="product-quanity" value="1" />
-                                            </li>
-                                            <li className="list-inline-item"><span className="btn btn-success" id="btn-minus">-</span></li>
-                                            <li className="list-inline-item"><span className="badge bg-secondary" id="var-value">1</span></li>
-                                            <li className="list-inline-item"><span className="btn btn-success" id="btn-plus">+</span></li>
-                                        </ul>
-                                    </div>
-                                </div> */}
                       <div className="row pb-3">
                         <div className="col d-grid">
-                          <button
+                          {/* <button
                             type="submit"
                             className="btn btn-success btn-lg"
                             name="submit"
                             value="buy"
                           >
                             Buy
-                          </button>
+                          </button> */}
                         </div>
                         <div className="col d-grid">
                           <button
@@ -366,9 +343,9 @@ const Product = () => {
           },
         ]}
       >
-        <div>Slide 1</div>
+        {/* <div>Slide 1</div>
         <div>Slide 2</div>
-        <div>Slide 3</div>
+        <div>Slide 3</div> */}
         {/* Add more slides here */}
       </Slider>
     </div>

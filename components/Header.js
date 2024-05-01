@@ -1,3 +1,5 @@
+'use client'
+
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
@@ -6,7 +8,9 @@ import { useFirebase } from "@/utils/firebase";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { useDispatch } from "react-redux";
 import { addUser, removeUser } from "@/utils/userSlice";
+// import { redirect } from "next/navigation";
 import { useRouter } from "next/router";
+
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -27,6 +31,7 @@ const Header = () => {
       })
       .catch((error) => {
         router.push("/error");
+        // redirect("/error")
       });
   };
 
@@ -54,7 +59,7 @@ const Header = () => {
         unsubscribe();
       };
     }
-  }, [auth]);
+  }, []);
 
   return (
     <div>
