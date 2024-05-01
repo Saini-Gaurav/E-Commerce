@@ -5,9 +5,11 @@ import React, { useCallback, useEffect, useState } from "react";
 const CardSection = () => {
   const router = useRouter();
   const { query, replace } = router;
+
   const [products, setProducts] = useState([]);
 
   const [inputValue, setInputValue] = useState("");
+  
 
   useEffect(() => {
     getProduct();
