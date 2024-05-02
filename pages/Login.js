@@ -9,12 +9,14 @@ import { useFirebase } from "@/utils/firebase";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser } from "@/utils/userSlice";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
   const user = useSelector((store) => store.user);
   const dispatch = useDispatch();
+  const router = useRouter();
 
   const { auth } = useFirebase();
 
@@ -54,6 +56,7 @@ const Login = () => {
               dispatch(
                 addUser({ uid: uid, email: email, displayName: displayName })
               );
+              router.push("/");
             })
             .catch((error) => {
               setErrorMessage(error.message);
@@ -75,6 +78,7 @@ const Login = () => {
           // Signed in
           const user = userCredential.user;
           console.log(user);
+          router.push("/");
         })
         .catch((error) => {
           const errorCode = error.code;

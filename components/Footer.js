@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
 
 const Footer = () => {
   return (
@@ -10,7 +9,7 @@ const Footer = () => {
           <div className="row">
             <div className="col-md-4 pt-5">
               <h3 className="h2 text-success pb-3 border-light logo">
-                <Link href={"/"} legacyBehaviour>
+                <Link href={"/"} legacyBehavior>
                   <Image
                     width={130}
                     height={50}

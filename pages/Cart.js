@@ -38,7 +38,7 @@ const Cart = () => {
             <div className="col-md-8">
               <div className="card mb-4">
                 <div className="card-header py-3">
-                  <h5 className="mb-0">Cart - {totalItems} items</h5>
+                  <h5 className="mb-0">Cart - Item {totalUniqueItems} of {totalItems} items</h5>
                 </div>
                 {items.map((item) => (
                   <div key={item.id} className="card-body">

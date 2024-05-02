@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -8,9 +8,7 @@ import { useFirebase } from "@/utils/firebase";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { useDispatch } from "react-redux";
 import { addUser, removeUser } from "@/utils/userSlice";
-// import { redirect } from "next/navigation";
 import { useRouter } from "next/router";
-
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -44,13 +42,13 @@ const Header = () => {
       const unsubscribe = onAuthStateChanged(auth, (user) => {
         if (user) {
           const { uid, email, displayName } = user;
-          dispatch(addUser({ uid: uid, email: email, displayName: displayName }));
+          dispatch(
+            addUser({ uid: uid, email: email, displayName: displayName })
+          );
           setIsLoggedIn(true);
-          router.push("/");
         } else {
           dispatch(removeUser());
           setIsLoggedIn(false);
-          router.push("/Login");
         }
       });
 
@@ -59,7 +57,7 @@ const Header = () => {
         unsubscribe();
       };
     }
-  }, []);
+  }, [auth]);
 
   return (
     <div>

@@ -27,7 +27,7 @@ export const useFirebase = () => {
       auth = getAuth(app);
       setFirebaseInitialized(true);
     }
-  }, [firebaseInitialized]);
-
+  }, []);
+  
   return { app, analytics, auth };
 };
